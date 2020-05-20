@@ -31,10 +31,10 @@ def cost(currentState,numOfQueens):
 	threat = 0
 	for i in range(numOfQueens):
 		for j in range(i+1,numOfQueens):
-			# i == j: thì 2 cặp đó cùng hàng
+			# currentState[list_key[i]] == currentState[list_key[j]]: thì 2 cặp đó cùng hàng
 			# currentState[list_key[i]] - currentState[list_key[j]]) == j - i thì 2 cặp đó nằm trên
 			# đường chéo
-			if i==j or abs(currentState[list_key[i]] - currentState[list_key[j]]) == j - i:
+			if currentState[list_key[i]] == currentState[list_key[j]] or abs(currentState[list_key[i]] - currentState[list_key[j]]) == j - i:
 				threat += 1
 
 	return threat
